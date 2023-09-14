@@ -20,7 +20,7 @@
                 <div class="card-body">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <input type="file" name="import_file" class="form-control">
-                        <button class="btn btn-primary mt-3">Import</button>
+                        <button type="submit" name="save_excel_data" class="btn btn-primary mt-3">Import</button>
                     </form>
                 </div>
             </div>
