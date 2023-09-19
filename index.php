@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,6 +17,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 mt-4">
+            <?php
+            if (isset($_SESSION['message'])) {
+                echo "<h4>" . $_SESSION['message'] . "</h4>";
+                unset($_SESSION['message']);
+            }
+            ?>
             <div class="card">
                 <div class="card-header">
                     <h4>Import Excel data into database</h4>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'connect.php';
 require 'vendor/autoload.php';
 
@@ -16,14 +17,29 @@ if (isset($_POST['save_excel_data'])) {
         $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory ::load($inputFileNamePath);
         $data = $spreadsheet -> getActiveSheet() -> toArray();
 
+        $count = "0";
         foreach ($data as $row) {
-            $fullname = $row['0'];
-            $email = $row['1'];
-            $phone = $row['2'];
-            $course = $row['3'];
+            if ($count > 0) {
+                $fullname = $row['0'];
+                $email = $row['1'];
+                $phone = $row['2'];
+                $course = $row['3'];
 
-            $studentQuery = "INSERT INTO students (fullname, email, phone, course) VALUES ('$fullname','$email','$phone','$course')";
-            $result = mysqli_query($connect, $studentQuery);
+                $studentQuery = "INSERT INTO students (fullname, email, phone, course) VALUES ('$fullname','$email','$phone','$course')";
+                $result = mysqli_query($connect, $studentQuery);
+                $msg = true;
+            } else {
+                $count = "1";
+            }
+        }
+        if (isset($msg)) {
+            $_SESSION['message'] = "Successfully Imported";
+            header("Location: index.php");
+            exit(0);
+        } else {
+            $_SESSION['message'] = "Not Imported";
+            header("Location: index.php");
+            exit(0);
         }
     } else {
         $_SESSION['message'] = "Invalid File";
