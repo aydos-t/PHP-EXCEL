@@ -34,6 +34,22 @@ session_start();
                     </form>
                 </div>
             </div>
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h4>Export data from database</h4>
+                </div>
+                <div class="card-body">
+                    <form action="app.php" method="POST">
+                    <select name="export_file_type" class="form-control">
+                        <option disabled selected hidden>Выберите тип файла</option>
+                        <option value="xlsx">XLSX</option>
+                        <option value="xls">XLS</option>
+                        <option value="csv">CSV</option>
+                    </select>
+                    <button type="submit" name="export_excel_data" class="btn btn-primary mt-3">Export</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
