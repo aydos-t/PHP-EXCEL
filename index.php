@@ -39,7 +39,7 @@ session_start();
                     <h4>Export data from database</h4>
                 </div>
                 <div class="card-body">
-                    <form action="#" method="POST">
+                    <form action="export.php" method="POST">
                     <select name="export_file_type" class="form-control">
                         <option disabled selected hidden>Выберите тип файла</option>
                         <option value="xlsx">XLSX</option>
