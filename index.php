@@ -28,7 +28,7 @@ session_start();
                     <h4>Import Excel data into database</h4>
                 </div>
                 <div class="card-body">
-                    <form action="app.php" method="POST" enctype="multipart/form-data">
+                    <form action="import.php" method="POST" enctype="multipart/form-data">
                         <input type="file" name="import_file" class="form-control">
                         <button type="submit" name="save_excel_data" class="btn btn-primary mt-3">Import</button>
                     </form>
@@ -39,7 +39,7 @@ session_start();
                     <h4>Export data from database</h4>
                 </div>
                 <div class="card-body">
-                    <form action="app.php" method="POST">
+                    <form action="#" method="POST">
                     <select name="export_file_type" class="form-control">
                         <option disabled selected hidden>Выберите тип файла</option>
                         <option value="xlsx">XLSX</option>
